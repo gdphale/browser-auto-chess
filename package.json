@@ -1,0 +1,23 @@
+{
+  "name": "browser-auto-chess",
+  "version": "1.0.0",
+  "description": "An auto chess game that operates in the browser",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdphale/browser-auto-chess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdphale/browser-auto-chess/issues"
+  },
+  "homepage": "https://github.com/gdphale/browser-auto-chess#readme"
+}
