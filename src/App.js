@@ -1,26 +1,54 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Bench} from './layout/Bench';
+import {Field} from './layout/Field';
+import {Shop} from './layout/Shop';
+
+const UserContext = React.createContext();
 
 function App() {
+  const user = User();
+  const [stage, setStage] = React.useState(0);
+
+  React.useEffect(function() {
+    console.log(`New Stage: ${stage}`);
+    shop.reroll();
+
+  }, [stage]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserContext.Provider value={user}>
+        <div className="left-pane">
+          <Field/>
+          <Bench/>
+        </div>
+        <div className="right-pane">
+          <Shop shop={shop}/>
+        </div>
+      </UserContext.Provider>
     </div>
   );
+}
+
+const User = function() {
+  return {
+    name: 'User',
+    gold: 0,
+    units: [],
+    getInterest: function() {
+      this.gold += Math.floor(this.gold / 10)
+    }
+  }
+}
+
+const shop = {
+  units: [],
+  reroll: function() {
+    console.log("rerolling units");
+    this.units = 
+  },
 }
 
 export default App;
